@@ -1,4 +1,4 @@
-import { Homeworld } from '.';
+import { Homeworld, Gender } from '.';
 
 interface People {
   name: string;
@@ -8,7 +8,7 @@ interface People {
   skin_color: string;
   eye_color: string;
   birth_year: string;
-  gender: string;
+  gender: Partial<Gender>;
   homeworld: string | Homeworld;
   films: string[];
   species: string[];

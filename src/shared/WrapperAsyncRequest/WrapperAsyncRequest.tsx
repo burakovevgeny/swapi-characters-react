@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { LoadingSpinner } from '../index';
 import { APIStatus, Color } from '../../models';
+import { useWindowSize } from '../../helpers';
 
 import * as S from './WrapperAsyncRequest.styled';
 
@@ -9,6 +10,7 @@ interface PropTypes {
 }
 
 const WrapperAsyncRequest: FC<PropTypes> = ({ children, status }) => {
+  const { isDesktop } = useWindowSize();
   const renderWrapper = () => {
     switch (status) {
       case APIStatus.Error:
@@ -22,7 +24,7 @@ const WrapperAsyncRequest: FC<PropTypes> = ({ children, status }) => {
       default:
         return (
           <S.RootWrapper>
-            <LoadingSpinner size={180} color={Color.YELLOW} />
+            <LoadingSpinner size={isDesktop ? 180 : 90} color={Color.YELLOW} />
           </S.RootWrapper>
         );
     }

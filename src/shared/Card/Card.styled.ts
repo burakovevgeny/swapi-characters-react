@@ -6,6 +6,11 @@ const CardWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.colors.yellow} 0px 0px 8px;
   margin: 10px;
   display: flex;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    margin: 10px 0px;
+    width: 280px;
+  }
 `;
 
 const Avatar = styled.img`
@@ -19,6 +24,10 @@ const TitleWrapper = styled.div`
   width: 100%;
   height: 100%;
   padding: 10px 0px;
+
+  span {
+    cursor: pointer;
+  }
 `;
 
 const Title = styled.p`

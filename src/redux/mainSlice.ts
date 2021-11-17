@@ -1,5 +1,5 @@
 import { RootState } from './index';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { APIStatus } from '../models';
 import { fetchPeople } from './actions';
 import { People } from '../models';
@@ -10,8 +10,7 @@ interface State {
     status: APIStatus;
   };
   favorites: {
-    data: People[];
-    status: APIStatus;
+    favoriteData: People[];
   };
 }
 
@@ -21,15 +20,21 @@ const initialState: State = {
     status: APIStatus.Init,
   },
   favorites: {
-    data: [],
-    status: APIStatus.Init,
+    favoriteData: [],
   },
 };
 
 export const mainSlice = createSlice({
   name: 'main',
   initialState,
-  reducers: {},
+  reducers: {
+    addToFavorite: (state, action: PayloadAction<People>) => {
+      state.favorites.favoriteData.push(action.payload);
+    },
+    removeFromFavorite: (state, action: PayloadAction<string>) => {
+      state.favorites.favoriteData = state.favorites.favoriteData.filter((character) => character.name !== action.payload);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPeople.pending, (state) => {
@@ -45,6 +50,9 @@ export const mainSlice = createSlice({
   },
 });
 
+export const {addToFavorite, removeFromFavorite} = mainSlice.actions
+
 export const getCharacters = (state: RootState) => state.main.characters;
+export const getFavorites = (state: RootState) => state.main.favorites;
 
 export default mainSlice.reducer;

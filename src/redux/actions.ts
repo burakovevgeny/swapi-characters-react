@@ -12,7 +12,13 @@ const getPeople = async () => {
   const promises: Array<PeopleResponse> = [];
 
   for (let i = 2; i <= numberOfPagesLeft; i++) {
-    promises.push(await api.get(`people?page=${i}`));
+    promises.push(
+      await api.get(`people`, {
+        params: {
+          page: i,
+        },
+      }),
+    );
   }
   const resultPromisesPeople = await Promise.all(promises);
   return resultPromisesPeople.reduce((acc, data) => [...acc, ...data.results], people);
@@ -33,4 +39,4 @@ const fetchPeople = createAsyncThunk(getPeopleAction.type, async () => {
   return getPeopleWithHomeworldAndImage();
 });
 
-export { fetchPeople };
+export { fetchPeople, getPeopleAction };
