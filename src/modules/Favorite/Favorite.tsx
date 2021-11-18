@@ -1,26 +1,16 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Homeworld } from '../../models';
 import { useSelector } from '../../redux';
 
 import { getFavorites } from '../../redux/mainSlice';
 import { Layout, Card, Filter } from '../../shared';
-import { getIdAndQuery, useDebounce, filterPeople } from '../../helpers';
-import { Gender } from '../../models';
+import { getIdAndQuery } from '../../helpers';
 
 import * as S from './Favorite.styled';
 
 const Favorite: FC = () => {
   const { favoriteData } = useSelector(getFavorites);
-
-  const [search, setSearch] = useState('');
   const [filteredPeople, setFilteredPeople] = useState(favoriteData);
-  const [filter, setFilter] = useState<Gender>(Gender.ALL);
-
-  const debouncedValue = useDebounce(search, 500);
-
-  useEffect(() => {
-    setFilteredPeople(filterPeople(favoriteData, filter, debouncedValue));
-  }, [favoriteData, filter, debouncedValue]);
 
   const renderContent = () => {
     if (!filteredPeople.length) {
@@ -35,7 +25,7 @@ const Favorite: FC = () => {
 
   return (
     <Layout>
-      <Filter search={search} filter={filter} setSearch={setSearch} setFilter={setFilter} />
+      <Filter data={favoriteData} setFilteredPeople={setFilteredPeople} />
       <>
         <S.CardWrapper>{renderContent()}</S.CardWrapper>
       </>

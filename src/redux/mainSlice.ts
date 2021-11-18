@@ -32,7 +32,9 @@ export const mainSlice = createSlice({
       state.favorites.favoriteData.push(action.payload);
     },
     removeFromFavorite: (state, action: PayloadAction<string>) => {
-      state.favorites.favoriteData = state.favorites.favoriteData.filter((character) => character.name !== action.payload);
+      state.favorites.favoriteData = state.favorites.favoriteData.filter(
+        (character) => character.name !== action.payload,
+      );
     },
   },
   extraReducers: (builder) => {
@@ -50,7 +52,7 @@ export const mainSlice = createSlice({
   },
 });
 
-export const {addToFavorite, removeFromFavorite} = mainSlice.actions
+export const { addToFavorite, removeFromFavorite } = mainSlice.actions;
 
 export const getCharacters = (state: RootState) => state.main.characters;
 export const getFavorites = (state: RootState) => state.main.favorites;

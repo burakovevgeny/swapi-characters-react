@@ -21,7 +21,10 @@ const Card: FC<PropTypes> = ({ id, planet, name }) => {
   const dispatch = useDispatch();
 
   const checkFavorite = (name: string) => {
-    return data.find((character) => favoriteData.find((favorite) => favorite.name === name));
+    return (
+      data.find((character) => favoriteData.find((favorite) => favorite.name === name)) ||
+      favoriteData.find((favorite) => favorite.name === name)
+    );
   };
 
   const setFavoriteList = (name: string) => {
