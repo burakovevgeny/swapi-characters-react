@@ -1,7 +1,8 @@
 {
   "name": "swapi-characters-react",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": "Evgeny Burakov",
   "dependencies": {
     "@mdi/font": "^6.5.95",
     "@reduxjs/toolkit": "^1.5.1",

@@ -29,6 +29,7 @@ const GenderWrapper = styled.div`
 const GenderTitle = styled.div<{ active: boolean }>`
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   p {
     color: ${({ active, theme }) => (active ? theme.colors.yellow : theme.colors.white)};
