@@ -2,7 +2,7 @@ import { Gender, People } from '../models';
 
 const filterPeople = (people: People[], filter: Gender, search?: string) => {
   return people.filter((character) => {
-    if (search && !character.name.toLowerCase().includes(search.toLocaleLowerCase().trim())) {
+    if (search && !character.name.toLowerCase().trim().includes(search.toLocaleLowerCase().trim())) {
       return false;
     }
     if (filter === Gender.ALL) {

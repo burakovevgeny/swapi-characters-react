@@ -1,21 +1,29 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
-import { Gender } from '../../models';
+import { Gender, People } from '../../models';
 import { Icon } from '..';
+import { useDebounce, filterPeople } from '../../helpers';
 
 import * as S from './Filter.styled';
 
 interface PropsTypes {
-  search: string;
-  filter: Gender;
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
-  setFilter: React.Dispatch<React.SetStateAction<Gender>>;
+  data: People[];
+  setFilteredPeople: React.Dispatch<React.SetStateAction<People[]>>;
 }
 
-const Filter: FC<PropsTypes> = ({ search, filter, setSearch, setFilter }) => {
+const Filter: FC<PropsTypes> = ({ data, setFilteredPeople }) => {
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState<Gender>(Gender.ALL);
+
+  const debouncedValue = useDebounce(search, 500);
   const onSearchValue = ($event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch($event?.target.value);
   };
+
+  useEffect(() => {
+    setFilteredPeople(filterPeople(data, filter, debouncedValue));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, filter, debouncedValue]);
 
   return (
     <S.FilterWrapper>
