@@ -8,7 +8,7 @@ const CardWrapper = styled.div`
   display: flex;
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin: 10px 0px;
+    margin: 10px 0;
     width: 280px;
   }
 `;
@@ -23,7 +23,7 @@ const Avatar = styled.img`
 const TitleWrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 10px 0px;
+  padding: 10px 0;
 
   span {
     cursor: pointer;
@@ -39,4 +39,6 @@ const Title = styled.p`
   }
 `;
 
-export { CardWrapper, Avatar, Title, TitleWrapper };
+export {
+  CardWrapper, Avatar, Title, TitleWrapper,
+};

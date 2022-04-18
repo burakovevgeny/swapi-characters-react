@@ -1,8 +1,7 @@
-import { RootState } from './index';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { APIStatus } from '../models';
+import { RootState } from './index';
+import { APIStatus, People } from '../models';
 import { fetchPeople } from './actions';
-import { People } from '../models';
 
 interface State {
   characters: {

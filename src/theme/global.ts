@@ -2,16 +2,19 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
-  },
-    *::before,
-    *::after {
+  }
+
+  ,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
+
   html, body {
     min-width: 280px;
     scroll-behavior: smooth;
@@ -20,10 +23,12 @@ const GlobalStyle = createGlobalStyle`
     background: ${(props) => props.theme.colors.main};
     color: ${(props) => props.theme.colors.white}
   }
+
   a {
     text-decoration: none;
     color: inherit;
   }
+
   #root {
     height: 100%;
     display: flex;

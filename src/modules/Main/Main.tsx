@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from '../../redux';
 
 import { fetchPeople } from '../../redux/actions';
 import { getCharacters } from '../../redux/mainSlice';
-import { Layout, Card, WrapperAsyncRequest, Filter } from '../../shared';
+import {
+  Card, Filter, Layout, WrapperAsyncRequest,
+} from '../../shared';
 import { getIdAndQuery } from '../../helpers';
 
 import * as S from './Main.styled';

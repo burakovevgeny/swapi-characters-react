@@ -20,6 +20,7 @@ const WrapperAsyncRequest: FC<PropTypes> = ({ children, status }) => {
           </S.RootWrapper>
         );
       case APIStatus.Success:
+        // eslint-disable-next-line react/jsx-no-useless-fragment
         return <>{children}</>;
       default:
         return (

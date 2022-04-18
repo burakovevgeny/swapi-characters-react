@@ -6,10 +6,7 @@ interface IWindowSize {
 }
 
 const useWindowSize = () => {
-  const [windowSize, setWindowSize] = useState<IWindowSize>({
-    width: 0,
-    height: 0,
-  });
+  const [windowSize, setWindowSize] = useState<IWindowSize>({ width: 0, height: 0 });
 
   const isMobile: boolean = windowSize.width <= 768;
   const isTablet: boolean = windowSize.width <= 1024 && windowSize.width > 768;

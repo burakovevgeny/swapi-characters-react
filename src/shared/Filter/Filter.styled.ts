@@ -41,4 +41,6 @@ const GenderTitle = styled.div<{ active: boolean }>`
   }
 `;
 
-export { FilterWrapper, Input, GenderWrapper, GenderTitle };
+export {
+  FilterWrapper, Input, GenderWrapper, GenderTitle,
+};

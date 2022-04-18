@@ -1,8 +1,8 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { Gender, People } from '../../models';
 import { Icon } from '..';
-import { useDebounce, filterPeople } from '../../helpers';
+import { filterPeople, useDebounce } from '../../helpers';
 
 import * as S from './Filter.styled';
 
@@ -27,18 +27,18 @@ const Filter: FC<PropsTypes> = ({ data, setFilteredPeople }) => {
 
   return (
     <S.FilterWrapper>
-      <S.Input type='text' value={search} onChange={onSearchValue} />
+      <S.Input type="text" value={search} onChange={onSearchValue} />
       <S.GenderWrapper>
         <S.GenderTitle active={filter === Gender.FEMALE} onClick={() => setFilter(Gender.FEMALE)}>
-          <Icon icon='mdi-gender-female' />
+          <Icon icon="mdi-gender-female" />
           <p>Female</p>
         </S.GenderTitle>
         <S.GenderTitle active={filter === Gender.MALE} onClick={() => setFilter(Gender.MALE)}>
-          <Icon icon='mdi-gender-male'/>
+          <Icon icon="mdi-gender-male" />
           <p>Male</p>
         </S.GenderTitle>
         <S.GenderTitle active={filter === Gender.ALL} onClick={() => setFilter(Gender.ALL)}>
-          <Icon icon='mdi-gender-male-female'/>
+          <Icon icon="mdi-gender-male-female" />
           <p>All</p>
         </S.GenderTitle>
       </S.GenderWrapper>

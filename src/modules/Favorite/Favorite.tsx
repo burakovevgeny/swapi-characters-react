@@ -3,7 +3,7 @@ import { Homeworld } from '../../models';
 import { useSelector } from '../../redux';
 
 import { getFavorites } from '../../redux/mainSlice';
-import { Layout, Card, Filter } from '../../shared';
+import { Card, Filter, Layout } from '../../shared';
 import { getIdAndQuery } from '../../helpers';
 
 import * as S from './Favorite.styled';
@@ -26,6 +26,7 @@ const Favorite: FC = () => {
   return (
     <Layout>
       <Filter data={favoriteData} setFilteredPeople={setFilteredPeople} />
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
         <S.CardWrapper>{renderContent()}</S.CardWrapper>
       </>

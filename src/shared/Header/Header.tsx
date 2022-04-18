@@ -20,19 +20,16 @@ const Header: FC = () => {
     },
   ];
 
-  const checkActiveStyle = (location: Navigation) => {
-    return pathname.split('/').includes(location.slice(1));
-  };
+  const checkActiveStyle = (location: Navigation) => pathname.split('/').includes(location.slice(1));
 
   return (
     <S.HeaderWrapper>
-      {menu.map((item, index) => {
-        return (
-          <S.Title key={index} to={item.to} active={`${checkActiveStyle(item.to)}`}>
-            <Icon icon={item.icon} />
-          </S.Title>
-        );
-      })}
+      {menu.map((item, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <S.Title key={index} to={item.to} active={`${checkActiveStyle(item.to)}`}>
+          <Icon icon={item.icon} />
+        </S.Title>
+      ))}
     </S.HeaderWrapper>
   );
 };

@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { useDispatch, useSelector } from '../../redux';
-import { addToFavorite, removeFromFavorite, getCharacters, getFavorites } from '../../redux/mainSlice';
+import {
+  addToFavorite, getCharacters, getFavorites, removeFromFavorite,
+} from '../../redux/mainSlice';
 
 import { Icon } from '..';
 
@@ -20,12 +22,9 @@ const Card: FC<PropTypes> = ({ id, planet, name }) => {
 
   const dispatch = useDispatch();
 
-  const checkFavorite = (name: string) => {
-    return (
-      data.find((character) => favoriteData.find((favorite) => favorite.name === name)) ||
-      favoriteData.find((favorite) => favorite.name === name)
-    );
-  };
+  const checkFavorite = (name: string) => (
+    favoriteData.find((favorite) => favorite.name === name)
+  );
 
   const setFavoriteList = (name: string) => {
     const candidate = data.find((character) => character.name === name);
@@ -39,10 +38,16 @@ const Card: FC<PropTypes> = ({ id, planet, name }) => {
 
   return (
     <S.CardWrapper>
-      <S.Avatar src={FULL_URL} alt='avatar' />
+      <S.Avatar src={FULL_URL} alt="avatar" />
       <S.TitleWrapper>
-        <S.Title>Name: {name}</S.Title>
-        <S.Title>Planet: {planet}</S.Title>
+        <S.Title>
+          Name:
+          {name}
+        </S.Title>
+        <S.Title>
+          Planet:
+          {planet}
+        </S.Title>
         <Icon
           icon={checkFavorite(name) ? 'mdi-account-heart' : 'mdi-account-heart-outline'}
           onClick={() => setFavoriteList(name)}

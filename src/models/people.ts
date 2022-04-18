@@ -1,4 +1,4 @@
-import { Homeworld, Gender } from '.';
+import { Gender, Homeworld } from '.';
 
 interface People {
   name: string;

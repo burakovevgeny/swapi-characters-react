@@ -7,7 +7,7 @@ const HeaderWrapper = styled.header`
   display: flex;
   padding: 24px 40px;
   justify-content: space-between;
-  box-shadow: 0px 5px 5px ${({ theme }) => theme.colors.yellow};
+  box-shadow: 0 5px 5px ${({ theme }) => theme.colors.yellow};
   margin-bottom: 20px;
 `;
 

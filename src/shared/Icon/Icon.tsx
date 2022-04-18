@@ -7,8 +7,6 @@ interface PropTypes {
   onClick?: () => void;
 }
 
-const Icon: FC<PropTypes> = memo(({ icon, onClick }) => {
-  return <S.IconWrapper className={`mdi ${icon}`} onClick={onClick} />;
-});
+const Icon: FC<PropTypes> = memo(({ icon, onClick }) => <S.IconWrapper className={`mdi ${icon}`} onClick={onClick} />);
 
 export { Icon };

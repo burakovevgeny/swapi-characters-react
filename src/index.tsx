@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { defaultTheme, GlobalStyle } from './theme';
 import App from './App';
-import { store } from './redux/index';
+import { store } from './redux';
 
 ReactDOM.render(
   <React.StrictMode>
